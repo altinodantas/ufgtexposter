@@ -93,6 +93,8 @@
 \renewcommand{\small}{\fontsize{26pt}{32pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{20pt}{26pt}\selectfont}
 
+
+
 %% Define 'setbackground' to provide background options
 \newcommand\setbackground[2][scale=1]{%
     \BgThispage
@@ -152,22 +154,37 @@
 %% For i4soft.
 \if@isoft
 
-\newcommand{\settinglogos}[2]{ 
-    \ifthenelse{ \not \equal{#1}{} }{ %% Define a command to include the UFG Logo.
+% Variable to adjust logos vetical position
+\newcommand{\logobox}{\def \@logobox}
+
+\newcommand{\settinglogos}[3][M]{ 
+    
+    % Positions: [T] = 13cm | [M] => 10cm | [B] => 5cm
+    \ifthenelse{\equal{#1}{T}}{
+        \logobox{13cm}
+    }{
+        \ifthenelse{\equal{#1}{M}}{
+            \logobox{10cm}
+        }{
+            \logobox{5cm}
+        }
+    }
+
+    \ifthenelse{ \not \equal{#2}{} }{ %% Include the UFG Logo whether it was set.
         \fancyhead[L]{
-            \raisebox{4in}{ % Define logo vposition 
+            \raisebox{\@logobox}{ % Performs logo vertical position 
                 \begin{minipage}{4in}
-                    \resizebox{4in}{!}{\includegraphics{#1}}
+                    \resizebox{4in}{!}{\includegraphics{#2}}
                 \end{minipage}
             }
         }
     }{}
     
-    \ifthenelse{ \not \equal{#2}{} }{ %% Define a command to include the Department Logo.
+    \ifthenelse{ \not \equal{#3}{} }{ %% Include the Department Logo whether it was set.
         \fancyhead[R]{
-            \raisebox{4in}{ % Define logo vposition
+            \raisebox{\@logobox}{ % Performs logo vertical position
                 \begin{minipage}{4in}
-                    \resizebox{4in}{!}{\includegraphics{#2}}
+                    \resizebox{4in}{!}{\includegraphics{#3}}
                 \end{minipage}
             }
         }
@@ -175,6 +192,10 @@
 }
 
 \fi
+
+\newcommand{\resizetitle}[2]{
+    \renewcommand{\LARGE}{\fontsize{#1}{#2}\selectfont}
+}
 
 %% For i4soft
 \if@isoft
