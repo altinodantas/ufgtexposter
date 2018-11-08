@@ -29,20 +29,12 @@
 
 %%% Declare and set some options.
 
-%% Set up ifs for Clinic, thesis and i4soft.
-\newif\if@clinic
-\@clinicfalse
-
-\newif\if@thesis
-\@thesisfalse
-
+%% Set up if for i4soft template.
 
 \newif\if@isoft
 \@isoftfalse
 
-%% Providing the clinic, thesis, i4soft document-class options.
-\DeclareOption{clinic}{\@clinictrue}
-\DeclareOption{thesis}{\@thesistrue}
+%% Providing the the i4soft document-class options.
 \DeclareOption{isoft}{\@isofttrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -113,7 +105,7 @@
   }
 }
 
-%%% Define some new fields for use in the header/title.
+%%% Define some new fields for use in the header/title/footer.
 
 %% For a i4soft poster.
 \if@isoft
