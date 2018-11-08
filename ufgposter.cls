@@ -38,17 +38,15 @@
 \DeclareOption{isoft}{\@isofttrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+
 %\ExecuteOptions{}
 \ProcessOptions
 
 \LoadClass{article}
 
-%% Include local configuration file, if any.
-\InputIfFileExists{i4softposter.cfg}{}{}
-
 %% Set some dimensions for layout.
 
-%% ====== portrait
+%% ====== portrait ====== %%
 \setlength{\paperwidth}{90cm}
 \setlength{\paperheight}{120cm}
 \setlength{\textwidth}{82cm}
@@ -79,14 +77,12 @@
 \definecolor{gold}{cmyk}{0,0.2,0.5,0.3}
 \definecolor{black}{rgb}{0,0,0}
 \definecolor{dkblue}{rgb}{0,0,0.47}
-\definecolor{green}{rgb}{0,1,0}
-\definecolor{ufglighblue}{rgb}{.65,.75,0.89}
-\definecolor{ufgdarkblue}{rgb}{0.0,0.39,.67}
+\definecolor{ufglhblue}{rgb}{.65,.75,0.89}
+\definecolor{ufgdkblue}{rgb}{0.0,0.39,.67}
 
 \setlength{\columnsep}{1.5in}
 %\setlength{\columnseprule}{2pt}
 \setlength{\columnseprule}{0pt}
-
 
 %% Redefine the named font sizes so we can keep most of the code
 
@@ -97,7 +93,7 @@
 \renewcommand{\small}{\fontsize{26pt}{32pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{20pt}{26pt}\selectfont}
 
-%% Define the 'setBackground' to provide background options
+%% Define 'setBackground' to provide background options
 \newcommand\setBackground[2][scale=1]{%
 \BgThispage
 \backgroundsetup{
@@ -107,7 +103,7 @@
 
 %%% Define some new fields for use in the header/title/footer.
 
-%% For a i4soft poster.
+%% For an i4soft poster.
 \if@isoft
 \def\class#1{\gdef\@class{#1}}
 \def\@class{\@latex@warning@no@line{No \noexpand\class given}}
@@ -118,7 +114,6 @@
 \providecommand{\reader}[1]{%
   \gdef\@reader{#1}}
 \fi
-
 
 %% Shared Definitions
 \def\site#1{\gdef\@site{#1}}
@@ -161,7 +156,6 @@
   \end{minipage}
 }
 
-
 %%% Set up the header for the poster.
 
 %% Use fancyhdr.
@@ -171,7 +165,7 @@
 \pagestyle{fancy}
 \fancyhf{}                      % Clear all fields.
 
-%% For thesis.
+%% For i4soft.
 \if@isoft
 \fancyhead[L]{\raisebox{3.5in}{\@ufglogo}}
 \fancyhead[R]{\raisebox{3.5in}{\@departmentlogo}}
@@ -181,15 +175,14 @@
 \if@isoft
 \fancyhead[C]{%
   \begin{center}
-    {\color{ufglighblue}\large\textsf{\@class}\\}%
+    {\color{ufglhblue}\large\textsf{\@class}\\}%
     {\color{white}\LARGE\textsf{\textbf{\@title}}\\[0.15em]}
-    {\color{ufglighblue}\Large\textsf{\@author}\\}
+    {\color{ufglhblue}\Large\textsf{\@author}\\}
     {\color{white}\large\textsf{\@department}\\[0.8em]}
     {\color{black}\large\textsf{\textbf{\@site}}}
   \end{center}
 }
 \fi
-
 
 %% Define the footer.
 
@@ -221,8 +214,6 @@
 }
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
-
 
 %%% Colorize header and footer rules.
 %%%
