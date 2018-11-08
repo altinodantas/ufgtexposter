@@ -11,31 +11,39 @@
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
 
-%% ufglhblue | ufgdkblue | dkblue | black | gold
-\sectionfont{\color{ufgdkblue}} 
-  
-%% ==================== Begin of the main editable info ==================== %%. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%               Configs               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Choose one of the section color {ufglhblue | ufgdkblue | dkblue | black | gold}
+\sectionfont{\color{gold}} 
+
+% Informe complete path to the logo files or leave empty one or both parameter. 
+\settinglogos{images/ufg-logo}{images/department-logo}
+
+% Choose one of the backgound options {1 | 2 | 3} 
+\setbackground{3}
+
+% General info
 \title{\uppercase{NomeDeImpacto: Aqui vai o título \\ com uma quebra de linha no meio}} 
-\author{Altino Dantas, Anderson Soares e Celso G. Camilo-Junior} 
+\author{Altino Dantas, Anderson Soares e Celso G. Camilo-Junior Altino Dantas, Anderson Soares e } 
 \department{Instituto de Informática - INF}
 \site{i4soft.com.br}
-
-%% Other info
 \class{Projeto Ciência no Parque}
 \posteryear{2018}
 \copyrightholder{Intelligence for Software Research Group - i4Soft}
 
-%% Background definition. Choose one of the options {1, 2 or 3} 
-\setBackground{1}
-
-%% ==================== Begin of the main editable info ==================== %%. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           End configs               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagestyle{fancy}
 \begin{document}
 \begin{poster}
 
-%% ==================== Begin of the poster ==================== %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%        Begin of the poster          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introdução}
 
@@ -111,7 +119,9 @@
 \bibliographystyle{abbrv}
 \bibliography{refs}
 
-%% ==================== End of the poster ==================== %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%          End of the poster          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{poster}
 

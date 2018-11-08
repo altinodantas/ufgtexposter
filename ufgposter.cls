@@ -30,7 +30,6 @@
 %%% Declare and set some options.
 
 %% Set up if for i4soft template.
-
 \newif\if@isoft
 \@isoftfalse
 
@@ -73,6 +72,7 @@
 \RequirePackage{graphics}
 \RequirePackage{xcolor}
 \RequirePackage{multicol}
+\RequirePackage{fancyhdr}
 
 \definecolor{gold}{cmyk}{0,0.2,0.5,0.3}
 \definecolor{black}{rgb}{0,0,0}
@@ -93,13 +93,14 @@
 \renewcommand{\small}{\fontsize{26pt}{32pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{20pt}{26pt}\selectfont}
 
-%% Define 'setBackground' to provide background options
-\newcommand\setBackground[2][scale=1]{%
-\BgThispage
-\backgroundsetup{
-  contents = {\includegraphics[#1]{backgrounds/#2}}
-  }
+%% Define 'setbackground' to provide background options
+\newcommand\setbackground[2][scale=1]{%
+    \BgThispage
+    \backgroundsetup{
+        contents = {\includegraphics[#1]{backgrounds/#2}}
+    }
 }
+\setbackground{1} % put background 1 by default
 
 %%% Define some new fields for use in the header/title/footer.
 
@@ -128,7 +129,6 @@
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
 
-
 %%% Set up the header.
 
 \newlength{\ignored@length}
@@ -142,33 +142,38 @@
 \newcommand{\@andcommaspace}{, }
 
 
-%% Define a command to include the UFG Logo.
-\DeclareRobustCommand{\@ufglogo}{%
-  \begin{minipage}{4in}
-    \resizebox{4in}{!}{\includegraphics{images/ufg-logo.png}}
-  \end{minipage}
-}
+%% Lay out the header
+\pagestyle{fancy}
+\fancyhf{}  % Clear all fields.
 
-%% Define a command to include the Department Logo.
-\DeclareRobustCommand{\@departmentlogo}{%
-  \begin{minipage}{4in}
-    \resizebox{4in}{!}{\includegraphics{images/department-logo.png}}
-  \end{minipage}
-}
 
 %%% Set up the header for the poster.
 
-%% Use fancyhdr.
-\RequirePackage{fancyhdr}
-
-%% Lay out the header
-\pagestyle{fancy}
-\fancyhf{}                      % Clear all fields.
-
 %% For i4soft.
 \if@isoft
-\fancyhead[L]{\raisebox{3.5in}{\@ufglogo}}
-\fancyhead[R]{\raisebox{3.5in}{\@departmentlogo}}
+
+\newcommand{\settinglogos}[2]{ 
+    \ifthenelse{ \not \equal{#1}{} }{ %% Define a command to include the UFG Logo.
+        \fancyhead[L]{
+            \raisebox{4in}{ % Define logo vposition 
+                \begin{minipage}{4in}
+                    \resizebox{4in}{!}{\includegraphics{#1}}
+                \end{minipage}
+            }
+        }
+    }{}
+    
+    \ifthenelse{ \not \equal{#2}{} }{ %% Define a command to include the Department Logo.
+        \fancyhead[R]{
+            \raisebox{4in}{ % Define logo vposition
+                \begin{minipage}{4in}
+                    \resizebox{4in}{!}{\includegraphics{#2}}
+                \end{minipage}
+            }
+        }
+    }{}
+}
+
 \fi
 
 %% For i4soft
@@ -238,7 +243,6 @@
 {\end{multicols*}
 }
 
-
 \renewenvironment{figure}
                {\def\@captype {figure}}
                {}
@@ -246,7 +250,6 @@
 \renewenvironment{table}
                {\def\@captype {table}}
                {}
-
 
 %%% Make section headers sans-serif.
 
