@@ -1,31 +1,31 @@
-% \iffalse meta-comment
-%
-% ufgposter.cls -- A Latex class to create posters from Universidade Federal de Goiás 
-% 
-% Copyright (C) 2018 Altino Dantas and I4Soft research group
-% 
-% This project is based on the .cls at https://github.com/harveymuddcollege/hmcposter-class.
-% This program is free software; you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation; either version 2 of the License, or
-% (at your option) any later version.
-% 
-% This program is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-% 
-% Contact: Altino Dantas <altinoneto@ing.ufg.br>
-%          Institute of Informatic
-%          Universidade Federal de Goiás - Brazil
-% 
-% \fi
-%%
-%% UFG Poster LaTeX class file.
-%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                  %%
+%% ufgtexposter.cls                                                 %%
+%% Latex class for posters for Universidade Federal de Goiás        %%
+%% Available at https://github.com/altinodantas/ufgtexposter        %%
+%%                                                                  %%
+%% Copyright (C) 2018 Altino Dantas and I4Soft research group       %%
+%%                                                                  %%
+%% This project is based on the .cls at                             %%
+%% https://github.com/harveymuddcollege/hmcposter-class.            %%
+%% This program is free software; you can redistribute it and/or    %%
+%% modify it under the terms of the GNU General Public License as   %%
+%% published by the Free Software Foundation; either version 2 of   %%
+%% the License, or (at your option) any later version.              %%
+%%                                                                  %%  
+%% This program is distributed in the hope that it will be useful,  %%
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of   %%
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the    %%
+%% GNU General Public License for more details.                     %%
+%%                                                                  %%
+%% Contact: Altino Dantas <altinoneto@ing.ufg.br>                   %%
+%%          Institute of Informatic                                 %%    
+%%          Universidade Federal de Goiás - Brazil                  %%
+%%                                                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ufgposter}[2018/11/07 INF/UFG LaTeX poster class]
+\ProvidesClass{ufgtexposter}[2018/11/07 INF/UFG LaTeX poster class]
 
 %%% Declare and set some options.
 
@@ -80,9 +80,9 @@
 \definecolor{ufglhblue}{rgb}{.65,.75,0.89}
 \definecolor{ufgdkblue}{rgb}{0.0,0.39,.67}
 
+%% Deal with separating columns
 \setlength{\columnsep}{1.5in}
-%\setlength{\columnseprule}{2pt}
-\setlength{\columnseprule}{0pt}
+\newcommand{\showcolumnseprule}[1]{\setlength{\columnseprule}{#1}}
 
 %% Redefine the named font sizes so we can keep most of the code
 
@@ -92,8 +92,6 @@
 \renewcommand{\normalsize}{\fontsize{32pt}{38pt}\selectfont}
 \renewcommand{\small}{\fontsize{26pt}{32pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{20pt}{26pt}\selectfont}
-
-
 
 %% Define 'setbackground' to provide background options
 \newcommand\setbackground[2][scale=1]{%
@@ -131,7 +129,7 @@
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
 
-%%% Set up the header.
+%% Set up the header
 
 \newlength{\ignored@length}
 \newcommand{\set@ess}[1]{%
@@ -159,7 +157,7 @@
 
 \newcommand{\settinglogos}[3][M]{ 
     
-    % Positions: [T] = 13cm | [M] => 10cm | [B] => 5cm
+    % Positions: [T] = 13cm | [M] = 10cm | [B] = 5cm
     \ifthenelse{\equal{#1}{T}}{
         \logobox{13cm}
     }{
@@ -193,6 +191,7 @@
 
 \fi
 
+%% Command to able title resizing 
 \newcommand{\resizetitle}[2]{
     \renewcommand{\LARGE}{\fontsize{#1}{#2}\selectfont}
 }
@@ -201,10 +200,10 @@
 \if@isoft
 \fancyhead[C]{%
   \begin{center}
-    {\color{ufglhblue}\large\textsf{\@class}\\}%
+    {\color{ufglhblue}\large\textsf{\@class}\\[0.8em]}%
     {\color{white}\LARGE\textsf{\textbf{\@title}}\\[0.15em]}
     {\color{ufglhblue}\Large\textsf{\@author}\\}
-    {\color{white}\large\textsf{\@department}\\[0.8em]}
+    {\color{white}\large\textsf{\@department}\\[0.9em]}
     {\color{black}\large\textsf{\textbf{\@site}}}
   \end{center}
 }
@@ -215,7 +214,7 @@
 \fancyfoot[C]{%
   \ifthenelse{\isundefined{\@copyrightholder}}%
   {}% Do nothing.
-  {\textcolor{white}{\@posteryear\ - \@copyrightholder}}
+  {\textcolor{white}{\@posteryear\ -- \@copyrightholder}}
 }
 
 \fancyfoot[L]{%
