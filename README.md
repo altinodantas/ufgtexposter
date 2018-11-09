@@ -2,8 +2,8 @@
 
 ## What is it?
 A Latex template to help student, professors and/or researchers from Universidade Federal de Goiás (UFG) 
-preparing their works in posters with the format 120x80cm. The template provides different options to change it visual 
-aspect as well as given examples on exposing images, tables and references just by using common LaTex resources.
+preparing their works in posters with the format 120x80cm. The template provides different options to change its visual 
+aspect as well as shows examples on exposing images, tables and bibliograpy references just by using common LaTex resources.
 
 ## How to use
 After downloading or cloning this repository, you must edit the file **poster.tex** to properly provide the content of the poster. 
