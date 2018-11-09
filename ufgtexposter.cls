@@ -82,7 +82,7 @@
 
 %% Deal with separating columns
 \setlength{\columnsep}{1.5in}
-\newcommand{\showcolumnseprule}[1]{\setlength{\columnseprule}{#1}}
+\newcommand{\setcolumnseprule}[1]{\setlength{\columnseprule}{#1}}
 
 %% Redefine the named font sizes so we can keep most of the code
 
@@ -155,7 +155,7 @@
 % Variable to adjust logos vetical position
 \newcommand{\logobox}{\def \@logobox}
 
-\newcommand{\settinglogos}[3][M]{ 
+\newcommand{\setlogos}[3][M]{ 
     
     % Positions: [T] = 13cm | [M] = 10cm | [B] = 5cm
     \ifthenelse{\equal{#1}{T}}{
@@ -192,7 +192,7 @@
 \fi
 
 %% Command to able title resizing 
-\newcommand{\resizetitle}[2]{
+\newcommand{\settitlesize}[2]{
     \renewcommand{\LARGE}{\fontsize{#1}{#2}\selectfont}
 }
 
@@ -277,5 +277,10 @@
 
 %%% Suppress section numbering.
 \renewcommand{\@seccntformat}[1]{\relax}
+
+\newcommand{\setsectioncolor}[1]{
+    \sectionfont{\color{#1}}     
+}
+
 
 \endinput
