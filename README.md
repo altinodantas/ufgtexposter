@@ -39,6 +39,7 @@ Except for more deeper changes, it is expected to be enough editing the follow s
   \posteryear{2018}
   \copyrightholder{Intelligence for Software Research Group - i4Soft}
   ```
-After **compiling** the project considering above configuration, the top of the poster will be likely the figure below. A complete output example is available [here](https://github.com/altinodantas/ufgtexposter/blob/master/images/template.png). 
+After **compiling** the project considering above configuration, the top of the poster will be likely the figure below.  
   ![Template example](https://raw.githubusercontent.com/altinodantas/ufgtexposter/master/images/background-1.png)
+  A complete example is available [here](https://github.com/altinodantas/ufgtexposter/blob/master/images/template.png).
   
