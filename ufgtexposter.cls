@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                  %%
-%% ufgtexposter.cls                                                 %%
+%%                     ufgtexposter.cls                             %%
+%%                                                                  %%
 %% Latex class for posters for Universidade Federal de Goiás        %%
 %% Available at https://github.com/altinodantas/ufgtexposter        %%
 %%                                                                  %%
@@ -117,8 +118,8 @@
 \fi
 
 %% Shared Definitions
-\def\site#1{\gdef\@site{#1}}
-\def\@site{\@latex@warning@no@line{No \noexpand\site given}}
+\def\email#1{\gdef\@email{#1}}
+\def\@email{\@latex@warning@no@line{No \noexpand\email given}}
 
 \def\department#1{\gdef\@department{#1}}
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
@@ -204,7 +205,7 @@
     {\color{white}\LARGE\textsf{\textbf{\@title}}\\[0.15em]}
     {\color{ufglhblue}\Large\textsf{\@author}\\}
     {\color{white}\large\textsf{\@department}\\[0.9em]}
-    {\color{black}\large\textsf{\textbf{\@site}}}
+    {\color{black}\large\textsf{\@email}}
   \end{center}
 }
 \fi
