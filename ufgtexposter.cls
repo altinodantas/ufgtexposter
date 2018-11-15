@@ -44,9 +44,22 @@
 
 \LoadClass{article}
 
-%% Set some dimensions for layout.
+%% Require some packages.
+\RequirePackage{sectsty}
+\RequirePackage{ifthen}
+\RequirePackage{mathpazo}
+\RequirePackage[scaled=0.95]{helvet}
+\RequirePackage[pages=some,scale=1,angle=0,opacity=1]{background}
+\renewcommand{\ttdefault}{pcr}
+\RequirePackage{sectsty}
+\RequirePackage[font=small,font=sf,labelfont=bf]{caption}[2005/06/28]
+\RequirePackage{graphics}
+\RequirePackage{xcolor}
+\RequirePackage{multicol}
+\RequirePackage{fancyhdr}
+\RequirePackage{etoolbox}
 
-%% ====== portrait ====== %%
+%% Set some dimensions for layout.
 \setlength{\paperwidth}{90cm}
 \setlength{\paperheight}{120cm}
 \setlength{\textwidth}{82cm}
@@ -61,47 +74,20 @@
 \setlength{\voffset}{0pt}
 \setlength{\hoffset}{0pt}
 
-%% Require some packages.
-\RequirePackage{sectsty}
-\RequirePackage{ifthen}
-\RequirePackage{mathpazo}
-\RequirePackage[scaled=0.95]{helvet}
-\RequirePackage[pages=some,scale=1,angle=0,opacity=1]{background}
-\renewcommand{\ttdefault}{pcr}
-\RequirePackage{sectsty}
-\RequirePackage[font=small,font=sf,labelfont=bf]{caption}[2005/06/28]
-\RequirePackage{graphics}
-\RequirePackage{xcolor}
-\RequirePackage{multicol}
-\RequirePackage{fancyhdr}
-
+%% Defining colors.
 \definecolor{gold}{cmyk}{0,0.2,0.5,0.3}
 \definecolor{black}{rgb}{0,0,0}
 \definecolor{dkblue}{rgb}{0,0,0.47}
 \definecolor{ufglhblue}{rgb}{.65,.75,0.89}
 \definecolor{ufgdkblue}{rgb}{0.0,0.39,.67}
 
-%% Deal with separating columns
-\setlength{\columnsep}{1.5in}
-\newcommand{\setcolumnseprule}[1]{\setlength{\columnseprule}{#1}}
-
-%% Redefine the named font sizes so we can keep most of the code
-
+%% Redefine the named font sizes so we can keep most of the code.
 \renewcommand{\LARGE}{\fontsize{76pt}{82pt}\selectfont}
 \renewcommand{\Large}{\fontsize{52pt}{58pt}\selectfont}
 \renewcommand{\large}{\fontsize{42pt}{48pt}\selectfont}
 \renewcommand{\normalsize}{\fontsize{32pt}{38pt}\selectfont}
 \renewcommand{\small}{\fontsize{26pt}{32pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{20pt}{26pt}\selectfont}
-
-%% Define 'setbackground' to provide background options
-\newcommand\setbackground[2][scale=1]{%
-    \BgThispage
-    \backgroundsetup{
-        contents = {\includegraphics[#1]{backgrounds/#2}}
-    }
-}
-\setbackground{1} % put background 1 by default
 
 %%% Define some new fields for use in the header/title/footer.
 
@@ -130,7 +116,24 @@
 \providecommand{\copyrightholder}[1]{%
   \gdef\@copyrightholder{#1}}
 
-%% Set up the header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%            set commands             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Deal with separating columns.
+\setlength{\columnsep}{1.5in}
+\newcommand{\setcolumnseprule}[1]{\setlength{\columnseprule}{#1}}
+
+%% Define 'setbackground' to provide background options.
+\newcommand\setbackground[2][scale=1]{%
+    \BgThispage
+    \backgroundsetup{
+        contents = {\includegraphics[#1]{backgrounds/#2}}
+    }
+}
+\setbackground{1} % put background 1 by default.
+
+%% Set up the header.
 
 \newlength{\ignored@length}
 \newcommand{\set@ess}[1]{%
@@ -142,23 +145,21 @@
 }
 \newcommand{\@andcommaspace}{, }
 
-
-%% Lay out the header
+%% Lay out the header.
 \pagestyle{fancy}
 \fancyhf{}  % Clear all fields.
-
 
 %%% Set up the header for the poster.
 
 %% For i4soft.
 \if@isoft
 
-% Variable to adjust logos vetical position
+% Variable to adjust logos vertical position.
 \newcommand{\logobox}{\def \@logobox}
 
 \newcommand{\setlogos}[3][M]{ 
     
-    % Positions: [T] = 13cm | [M] = 10cm | [B] = 5cm
+    % Positions: [T] = 13cm | [M] = 10cm | [B] = 5cm.
     \ifthenelse{\equal{#1}{T}}{
         \logobox{13cm}
     }{
@@ -171,7 +172,7 @@
 
     \ifthenelse{ \not \equal{#2}{} }{ %% Include the UFG Logo whether it was set.
         \fancyhead[L]{
-            \raisebox{\@logobox}{ % Performs logo vertical position 
+            \raisebox{\@logobox}{ % Performs logo vertical position. 
                 \begin{minipage}{4in}
                     \resizebox{4in}{!}{\includegraphics{#2}}
                 \end{minipage}
@@ -181,7 +182,7 @@
     
     \ifthenelse{ \not \equal{#3}{} }{ %% Include the Department Logo whether it was set.
         \fancyhead[R]{
-            \raisebox{\@logobox}{ % Performs logo vertical position
+            \raisebox{\@logobox}{ % Performs logo vertical position.
                 \begin{minipage}{4in}
                     \resizebox{4in}{!}{\includegraphics{#3}}
                 \end{minipage}
@@ -192,9 +193,14 @@
 
 \fi
 
-%% Command to able title resizing 
+%% Command to able resizing title.
 \newcommand{\settitlesize}[2]{
     \renewcommand{\LARGE}{\fontsize{#1}{#2}\selectfont}
+}
+
+%% Command to able resizing the text of the content .
+\newcommand{\setcontentfontesize}[2]{
+    \renewcommand{\normalsize}{\fontsize{#1}{#2}\selectfont}
 }
 
 %% For i4soft
@@ -211,7 +217,6 @@
 \fi
 
 %% Define the footer.
-
 \fancyfoot[C]{%
   \ifthenelse{\isundefined{\@copyrightholder}}%
   {}% Do nothing.
@@ -238,11 +243,13 @@
     }
   }
 }
+
+
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
+
 %%% Colorize header and footer rules.
-%%%
 %%% This code taken from fancyhdr.sty; written by Piet van Oostrum.
 
 \newcommand{\@rulecolor}{gold}
@@ -283,5 +290,4 @@
     \sectionfont{\color{#1}}     
 }
 
-
-\endinput
+\AtBeginEnvironment{figure}{\addvspace{1.5cm}}\AtEndEnvironment{figure}{\addvspace{1.5cm}}
