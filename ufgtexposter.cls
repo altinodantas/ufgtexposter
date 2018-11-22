@@ -34,12 +34,12 @@
 \newif\if@isoft
 \@isoftfalse
 
-%% Providing the the i4soft document-class options.
+%% Providing the i4soft document-class options.
 \DeclareOption{isoft}{\@isofttrue}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
-%\ExecuteOptions{}
+\ExecuteOptions{isoft}
 \ProcessOptions
 
 \LoadClass{article}
@@ -263,12 +263,11 @@
 
 \setlength{\multicolsep}{2em}
 
-\newenvironment{poster}{%
-\thispagestyle{fancy}
-%{\color{gold}\rule{\textwidth}{2pt}}
-\begin{multicols*}{2}
-}%
-{\end{multicols*}
+\newenvironment{poster}{
+    \thispagestyle{fancy}
+    \begin{multicols*}{2}
+    }
+    {\end{multicols*}
 }
 
 \renewenvironment{figure}
