@@ -203,6 +203,11 @@
     \renewcommand{\normalsize}{\fontsize{#1}{#2}\selectfont}
 }
 
+%% Command to able resizing the email (samll) font size.
+\newcommand{\setemailfontesize}[2]{
+    \renewcommand{\small}{\fontsize{#1}{#2}\selectfont}
+}
+
 %% For i4soft
 \if@isoft
 \fancyhead[C]{%
@@ -211,7 +216,7 @@
     {\color{white}\LARGE\textsf{\textbf{\@title}}\\[0.15em]}
     {\color{ufglhblue}\Large\textsf{\@author}\\}
     {\color{white}\large\textsf{\@department}\\[0.9em]}
-    {\color{black}\large\textsf{\@email}}
+    {\color{black}\small\textsf{\@email}}
   \end{center}
 }
 \fi
