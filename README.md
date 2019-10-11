@@ -26,11 +26,14 @@ Except for more deeper changes, it is expected to be enough editing the follow s
   % Actually, one can select any graphic file in the directory 'backgrounds'. 
   \setbackground{1}
 
-  % Resize the title to keep it in two lines // {font size}{line height}
+  % Resize the title to keep it up to two lines // {font size}{line height}
   \settitlesize{64pt}{68pt}
 
   % Resize the font of the content. Default {32pt}{38pt} // {font size}{line height}
   \setcontentfontesize{32pt}{40pt}
+  
+  % Resize the font of the emails. Default {26pt}{32pt} // {font size}{line height}
+  \setemailfontesize{42pt}{40pt}
   ```
   #### General data
   ```tex
