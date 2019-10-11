@@ -51,4 +51,8 @@ A complete example of the PDF output is available [here](https://github.com/alti
 ## UFGTeXPoster on Overleaf
 This project was fully developed on the [Overleaf](https://www.overleaf.com), an online LaTeX editor that has joined with another well-known web service called ShareLatex. Thus, if you have interesting in one of the services above, you may find UFGTexPoster available in the official Overleaf's templates gallery at [here](https://www.overleaf.com/latex/templates/poster-ufg/rjwsyhyhkkfk), which is ready for use.
 
-If you have some comments or suggestion, let me know by emailing on tinodantas@gmail.com.
+## Disclaimer
+
+This project is a personal initiative, under open source and collaborative principles, which until now has no formal association with the Federal University of Goiás institution. Thus, this template is not an official artifact from such a university.
+
+If you have some comments or suggestion, let me know by sending email to tinodantas@gmail.com.
