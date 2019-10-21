@@ -53,7 +53,7 @@ This project was fully developed on the [Overleaf](https://www.overleaf.com), an
 
 ## Other Latex Template
 
-- [UFGTeXPoster](https://github.com/deuslirio/UFGTeX-Presentation)
+- [UFGTeXPresentation](https://github.com/deuslirio/UFGTeX-Presentation)
 
 ## Disclaimer
 
