@@ -51,7 +51,7 @@ A complete example of the PDF output is available [here](https://github.com/alti
 ## UFGTeXPoster on Overleaf
 This project was fully developed on the [Overleaf](https://www.overleaf.com), an online LaTeX editor that has joined with another well-known web service called ShareLatex. Thus, if you have interesting in one of the services above, you may find UFGTexPoster available in the official Overleaf's templates gallery at [here](https://www.overleaf.com/latex/templates/poster-ufg/rjwsyhyhkkfk), which is ready for use.
 
-## Other Latex Template
+## Other UFG Latex Template
 
 - [UFGTeXPresentation](https://github.com/deuslirio/UFGTeX-Presentation)
 
